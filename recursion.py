@@ -20,6 +20,21 @@ def cal_les_4(n):
         return 1
     return 2 * cal_les_4(n-1) + 1
 
+#method 1
+def cal_les_5_med1(a,i,j):
+    if i < j:
+        a[i] , a[j-1] = a[j-1], a[i]
+        return cal_les_5_med1(a,i+1,j-1)
+    else:
+        return 
+
+def cal_les_5_med2(a):
+    if len(a) == 1:
+        return [a[0]]
+    else:
+        return [a[-1]] + cal_les_5_med2(a[:-1]) 
+
+
 def main():
     """ Lesson 1: calculate n! """
     # n = int(input("Enter n = "))
@@ -38,8 +53,15 @@ def main():
     """ Lesson 4: Tower of Hanoi math problem
         h1 = 1
         h(n) = 2h(n-1) + 1 """
-    n = int(input("Enter n = "))
-    print("least number of moves is: " + str(cal_les_4(n)))
+    # n = int(input("Enter n = "))
+    # print("least number of moves is: " + str(cal_les_4(n)))
 
+    """ Lessson 5: Reverse Array"""
+    a = [1,2,3,4,5,6,7,8,9]
+    i = 0
+    j = len(a)
+    print(a[-1])
+    # cal_les_5_med1(a,i,j)
+    print(cal_les_5_med2(a))
 
 main()
