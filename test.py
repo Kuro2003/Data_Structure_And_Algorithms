@@ -1,7 +1,9 @@
-def fibo(n):
-    if n <= 1:
-        return (n,0)
+def recur(n,s):
+    if n == 0:
+        print(s)
     else:
-        (a,b) = fibo(n-1)
-        return (a+b,a)
-print(fibo(3))
+        for i in range(2):
+            recur(n-1,s + str(i))
+s = ""
+n = int(input())
+recur(n,s)
