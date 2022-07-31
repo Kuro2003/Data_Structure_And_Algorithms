@@ -1,6 +1,7 @@
-from operator import le
+from ast import walk
+from cgitb import reset
 from telnetlib import WILL
-from matplotlib.cbook import is_math_text
+from winreg import QueryInfoKey
 
 
 class Empty(Exception):
@@ -38,14 +39,13 @@ class ArrayQueue:
             raise Empty("Queue is Empty")
         answer = self._data[self._front]
         self._data[self._front] = None
-        self._front = (self._front+1) % len(self._data)
+        self._front = (self._front + 1) % len(self._data)
         self._size -= 1
-        return answer
-    
+
     def enqueue(self,e):
         """ Add an element to the back of queue"""
         if self._size == len(self._data):
-            self._resize(2*len(self._data))
+            self._resize(2 * len(self._data))
         avail = (self._front + self._size) % len(self._data)
         self._data[avail] = e
         self._size += 1
@@ -55,10 +55,13 @@ class ArrayQueue:
         old = self._data
         self._data = [None] * cap
         walk = self._front
-        for k in range(self._size):
-            self._data[k] = old[walk]
-            walk = (1 + walk) % len(old)
+        for i in range(self._size):
+            self._data[i] = old[walk]
+            walk = (walk + 1) % len(self._data)
         self._front = 0
-
 if __name__ == '__main__':
-    pass
+    queue = ArrayQueue()
+    queue.enqueue(1)
+    queue.enqueue(2)
+    queue.enqueue(3)
+    print(queue._data)
