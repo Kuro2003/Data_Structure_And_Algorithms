@@ -1,3 +1,4 @@
+import os
 class Node:
     def __init__(self,element,next):
         self._element = element
@@ -121,29 +122,53 @@ class LinkedStack:
             itr = itr._next
         print(llstr)
 
+def menu():
+    print("-------------------Menu--------------------")
+    print("| 1.add node at index head                  |")
+    print("| 2.add node at index end                   |")
+    print("| 3.remove at index head                    |")
+    print("| 4.remove at index end                     |")
+    print("| 5.remove at index k                       |")
+    print("| 6.insert at index head                    |")
+    print("| 7.insert at index end                     |")
+    print("| 8.insert at index k                       |")
+    print("| 0. Exit                                   |")
+    print("-------------------------------------------")
+
+def check(promp,begin,end):
+    while True:
+        menu()
+        option = int(input("Enter option you want: "))
+        if option < begin or option > end:
+            print("You wrong enter")
+        else:
+            return option
+        os.system('cls')
+
 if __name__ == '__main__':
     llist = LinkedStack()
-    llist.push(2)
-    llist.push(3)
-    llist.push(4)
-    llist.push(5)
-    llist.print()
+    while True:
+        promp = "Enter option you want: "
+        option = check(promp,0,8)
+        if option == 1:
+            pass
+        elif option == 2:
+            pass
+        elif option == 3:
+            pass
+        elif option == 4:
+            pass
+        elif option == 5:
+            pass
+        elif option == 6:
+            pass
+        elif option == 7:
+            pass
+        elif option == 8:
+            pass
+        else:
+            break
 
-    print("insert 69")
-    llist.insert_at(69,0)
-    llist.print()
-
-    print("insert 23")
-    llist.insert_at_end(23)
-    llist.print()
-
-    print("pop")
-    print(llist.pop())
-    llist.print()
-
-    print("remove")
-    llist.remove_at(4)
-    llist.print()
 
 
 
