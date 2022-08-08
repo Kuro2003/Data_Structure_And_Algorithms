@@ -1,4 +1,5 @@
 import os
+
 class Node:
     def __init__(self,element,next):
         self._element = element
@@ -50,7 +51,9 @@ class LinkedStack:
     def remove_at_end(self):
         # Check empty list
         if self._size == 0:
-            return 
+            print("Stack is empty")
+            return
+            
         count = 0
         itr = self._head
         while itr:
@@ -63,7 +66,11 @@ class LinkedStack:
 
     """ Add element(e) at index"""
     def insert_at(self,e,index):
-        itr = self._head
+        # Check empty list
+        if self._size == 0:
+            self.push(e)
+            self._size += 1
+            return
 
         # Check index == 0
         if index == self._size:
@@ -76,6 +83,7 @@ class LinkedStack:
             return 
         
         # else
+        itr = self._head
         count = 0
         while itr:
             count += 1
@@ -88,9 +96,15 @@ class LinkedStack:
 
     # Remove at index
     def remove_at(self,index):
+        # Check list empty
+        if self._size == 0:
+            print("Stack is empty")
+            return
+
         # Check index == 0
         if index == 0:
             self._head = self._head._next
+            self -= 1
             return
         
         # Check index == size
@@ -123,50 +137,89 @@ class LinkedStack:
         print(llstr)
 
 def menu():
-    print("-------------------Menu--------------------")
-    print("| 1.add node at index head                  |")
-    print("| 2.add node at index end                   |")
-    print("| 3.remove at index head                    |")
-    print("| 4.remove at index end                     |")
-    print("| 5.remove at index k                       |")
-    print("| 6.insert at index head                    |")
-    print("| 7.insert at index end                     |")
-    print("| 8.insert at index k                       |")
-    print("| 0. Exit                                   |")
-    print("-------------------------------------------")
+    print("\t\t-------------------Menu----------------------")
+    print("\t\t| 1.Print list                              |")
+    print("\t\t| 2.insert at index head                    |")
+    print("\t\t| 3.insert at index end                     |")
+    print("\t\t| 4.insert at index k                       |")
+    print("\t\t| 5.remove at index head                    |")
+    print("\t\t| 6.remove at index end                     |")
+    print("\t\t| 7.remove at index k                       |")
+    print("\t\t| 0. Exit                                   |")
+    print("\t\t---------------------------------------------")
 
 def check(promp,begin,end):
     while True:
-        menu()
-        option = int(input("Enter option you want: "))
+        option = int(input(promp))
         if option < begin or option > end:
             print("You wrong enter")
         else:
             return option
-        os.system('cls')
+        
 
 if __name__ == '__main__':
     llist = LinkedStack()
     while True:
+        menu()
         promp = "Enter option you want: "
         option = check(promp,0,8)
+        
+        # Print list
         if option == 1:
-            pass
+            llist.print()
+
+        # insert at index head
         elif option == 2:
-            pass
+            k = int(input("Enter data: "))
+            llist.push(k)
+            os.system('cls')  
+            
+        # insert at index end
         elif option == 3:
-            pass
+            k = int(input("Enter data: "))
+            llist.insert_at_end(k)
+            os.system('cls')  
+
+        # insert at data and index m
         elif option == 4:
-            pass
+            k = int(input("Enter data: "))
+            promp = "Enter index you want insert: "
+            if llist._size == 0:
+                llist.push(k)
+            else:
+                m = check(promp,0,llist._size + 1)
+                llist.insert_at(k,m)
+                os.system('cls')  
+
+        # remove at index head
         elif option == 5:
-            pass
+            if llist._size == 0:
+                llist.pop()
+            else:
+                llist.pop()
+                os.system('cls')  
+
+        #remove at index end
         elif option == 6:
-            pass
+            if llist._size == 0:
+                llist.remove_at_end()
+            else:
+                llist.remove_at_end()
+                os.system('cls')  
+
+        # remove at index k
         elif option == 7:
-            pass
-        elif option == 8:
-            pass
+            promp = "Enter index you want remove: "
+            k = check(promp,0,llist._size)
+            if llist._size == 0:
+                llist.remove_at(k)
+            else:
+                llist.remove_at(k)
+                os.system('cls')  
+
+        # Exit 
         else:
+            os.system('cls')  
             break
 
 
