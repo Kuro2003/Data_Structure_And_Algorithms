@@ -55,13 +55,27 @@ class Binary_Search_Tree:
 			return 0
 
 	def _height(self,cur_node,cur_height):
-		if cur_node==None: 
+		if cur_node == None: 
 			return cur_height
 		left_height=self._height(cur_node.left_child,cur_height+1)
 		right_height=self._height(cur_node.right_child,cur_height+1)
 		return max(left_height,right_height)
+
+	# Find Value from user input
+	def find(self,value):
+		if self.root != None:
+			return self._find(self.root,value)
+		else:
+			return False
 	
-		
+	def _find(self,cur_node,value):
+		if value == cur_node.value:
+			return True
+		elif value < cur_node.value and cur_node.left_child != None:
+			return self._find(cur_node.left_child,value)
+		elif value > cur_node.value and cur_node.right_child != None:
+			return self._find(cur_node.right_child,value)
+		return False
 if __name__ == '__main__':
 	tree = Binary_Search_Tree()
 	tree.insert(7)
@@ -73,3 +87,5 @@ if __name__ == '__main__':
 	tree.insert(4)
 	tree.print_tree()
 	print("\nThe height is " + str(tree.height()))
+	print(tree.find(3))
+	print(tree.find(12))
