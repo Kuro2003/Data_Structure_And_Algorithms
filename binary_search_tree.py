@@ -1,6 +1,3 @@
-from platform import node
-
-
 class Node:
 	def __init__(self,value=None):
 		self.value = value
@@ -61,19 +58,19 @@ class Binary_Search_Tree:
 		return max(left_height,right_height)
 
 	# Find Value from user input
-	def find(self,value):
+	def Search(self,value):
 		if self.root != None:
-			return self._find(self.root,value)
+			return self._Search(self.root,value)
 		else:
 			return False
 	
-	def _find(self,cur_node,value):
+	def _Search(self,cur_node,value):
 		if value == cur_node.value:
 			return True
 		elif value < cur_node.value and cur_node.left_child != None:
-			return self._find(cur_node.left_child,value)
+			return self._Search(cur_node.left_child,value)
 		elif value > cur_node.value and cur_node.right_child != None:
-			return self._find(cur_node.right_child,value)
+			return self._Search(cur_node.right_child,value)
 		return False
 	
 	# Find node 2 children
@@ -117,6 +114,30 @@ class Binary_Search_Tree:
 				print(cur_node.value,end = ' ')
 			self._node_leaf(cur_node.left_child)
 			self._node_leaf(cur_node.right_child)
+	
+	# Find max node
+	def max_node(self):
+		if self.root != None:
+			return self._max_node(self.root)
+		else:
+			print('Tree is empty!!!')
+	
+	def _max_node(self,cur_node):
+		if (cur_node.right_child == None):
+			return cur_node.value
+		return self._max_node(cur_node.right_child)
+
+	# Find min node
+	def min_node(self):
+		if self.root != None:
+			return self._min_node(self.root)
+		else:
+			print('Tree is empty!!!')
+	
+	def _min_node(self,cur_node):
+		if (cur_node.left_child == None):
+			return cur_node.value
+		return self._min_node(cur_node.left_child)
 if __name__ == '__main__':
 	tree = Binary_Search_Tree()
 	tree.insert(5)
@@ -126,13 +147,24 @@ if __name__ == '__main__':
 	tree.insert(8)
 	tree.insert(7)
 	tree.insert(9)
+
 	tree.print_tree()
+
 	print("\nThe height is " + str(tree.height()))
-	print(tree.find(3))
-	print(tree.find(12))
+	print(tree.Search(3))
+	print(tree.Search(12))
+
 	print("Node 2 children is: ",end='')
 	tree.node_2_children()
+
 	print("\nNode 1 children is: ",end='')
 	tree.node_one_children()
+
 	print("\nNode leaf is: ",end='')
 	tree.node_leaf()
+
+	print("\nNode max is: ",end='')
+	print(tree.max_node(),end='')
+
+	print("\nNode min is: ",end='')
+	print(tree.min_node())
