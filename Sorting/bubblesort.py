@@ -1,9 +1,11 @@
-a = [1,2,3,5,6,0,12,42,23,65]
-def bubblesort(a,n):
-    for i in range(n):
-        for j in range(n-i-1):
-            if a[j] > a[j+1]:
-                a[j],a[j+1] = a[j+1] ,a[j]
-print(a)
-bubblesort(a,len(a))
-print(a)
+def bubblesort(arr):
+    for i in range(len(arr)):
+        for j in range(len(arr)-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+
+arr = [1,2,3,5,6,0,12,42,23,65]
+print("Mang khoi tao:\n",arr)
+bubblesort(arr)
+print("Mang sau khi sap xep:")
+print(arr)
