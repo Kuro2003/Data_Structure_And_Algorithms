@@ -1,12 +1,13 @@
-def selectionsort(a,n):
-    for i in range(n):
+def selectionsort(arr):
+    for i in range(len(arr)):
         min_idx = i
-        for j in range(i+1,n):
-            if a[min_idx] > a[j]:
+        for j in range(i+1,len(arr)):
+            if arr[min_idx] > arr[j]:
                 min_idx = j
-        a[i], a[min_idx] = a[min_idx],a[i]
+        arr[i], arr[min_idx] = arr[min_idx],arr[i]
 
-a = [1,2,3,5,6,0,12,42,23,65]
-print(a)
-selectionsort(a,len(a))
-print(a)
+arr = [1,2,3,5,6,0,12,42,23,65]
+print("Mang khoi tao:\n",arr)
+selectionsort(arr)
+print("Mang sau khi sap xep:")
+print(arr)
