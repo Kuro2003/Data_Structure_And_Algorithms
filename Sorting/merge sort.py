@@ -17,12 +17,12 @@ def mergesort(a):
                 j += 1
             k += 1
         
-        if i < len(L):
+        while i < len(L):
             a[k] = L[i]
             k += 1
             i += 1
         
-        if j < len(R):
+        while j < len(R):
             a[k] = R[j]
             k += 1
             j += 1
