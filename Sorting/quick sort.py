@@ -7,7 +7,7 @@ def partition(arr,low,high):
         if arr[j] < pivot:
             i += 1
             arr[i],arr[j] = arr[j],arr[i]
-    arr[i+1],pivot = pivot,arr[i+1]
+    arr[i+1],arr[high] = arr[high],arr[i+1]
     return i +1
 # Function to ferform quicksort
 def quicksort(arr,low,high):
