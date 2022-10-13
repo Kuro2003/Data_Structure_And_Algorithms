@@ -1,9 +1,17 @@
-a = [1,2,3,5,6,0,12,42,23,65]
-def bubblesort(a,n):
-    for i in range(n):
-        for j in range(n-i-1):
-            if a[j] > a[j+1]:
-                a[j],a[j+1] = a[j+1] ,a[j]
-print(a)
-bubblesort(a,len(a))
-print(a)
+# Initialize a string you want to remove leading zeros
+str_left = "000124421"
+
+# Remove leading zeros
+new_str_1 = str_left.lstrip("0")
+
+# Print new string
+print("New string remove leading zeros:",new_str_1)
+
+# Initialize a string you want to remove trailing zeros
+str_left = "959500000"
+
+# Remove leading zeros
+new_str_2 = str_left.rstrip("0")
+
+# Print new string
+print("New string remove trailing zeros:",new_str_2)
