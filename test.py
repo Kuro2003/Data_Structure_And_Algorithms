@@ -1,9 +1,15 @@
-# Initialize a string you want to remove leading zeros
-str_left = "000Learn Share IT00000"
+# Initialize a variable store string
+from re import S
 
-# Remove leading and trailing zeros
-new_str_1 = str_left.lstrip("0")
-new_str_2 = new_str_1.rstrip("0")
 
-# Print new string
-print("New string remove leading and trailing zeros:",new_str_2)
+str = "0000Learn Share IT12300000"
+
+# Remove leading zeros
+while str[0] == "0":
+    str = str[1:]
+
+# Remove trailing zeros
+while str[-1] == "0":
+    str = str[:-1]
+
+print("New string is:",str)
