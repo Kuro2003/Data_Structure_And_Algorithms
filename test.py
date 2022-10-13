@@ -6,4 +6,4 @@ new_str_1 = str_left.lstrip("0")
 new_str_2 = new_str_1.rstrip("0")
 
 # Print new string
-print("New string remove leading and trailing zeros: ",new_str_2)
+print("New string remove leading and trailing zeros:",new_str_2)
