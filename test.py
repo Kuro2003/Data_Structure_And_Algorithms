@@ -1,13 +1,8 @@
-# Initialize a variable store string
-str = "0000Learn Share IT12300000"
+# import pandas 
+import pandas as pd
 
-# Remove leading zeros
-while str[0] == "0":
-    str = str[1:]
+# create a vaariable store dataframe
+df = pd.DataFrame({'a': [10, 20], 'b': [30, 40]})
 
-# Remove trailing zeros
-while str[-1] == "0":
-    str = str[:-1]
-
-# Print new string
-print("New string is:",str)
+# print
+print(df)
