@@ -1,8 +1,8 @@
-# import pandas 
-import pandas as pd
+# Initialize a string
+str = "Learn"
 
-# create a vaariable store dataframe
-df = pd.DataFrame({'a': [10, 20], 'b': [30, 40]})
+# Initialize a list
+list = ["Share", "IT"]
 
-# print
-print(df)
+# TypeError: can only concatenate str (not "list") to str
+print(str, list)
