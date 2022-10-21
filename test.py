@@ -8,4 +8,4 @@ list = ["Share", "IT"]
 for l in list:
     str = str + " " + l # Update str
 
-print(str)
+print("After concatenate:",str)
