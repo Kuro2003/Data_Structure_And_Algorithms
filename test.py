@@ -4,5 +4,8 @@ str = "Learn"
 # Initialize a list
 list = ["Share", "IT"]
 
-# TypeError: can only concatenate str (not "list") to str
-print(str, list)
+# Use a for loop to iterate through the elements in the list
+for l in list:
+    str = str + " " + l # Update str
+
+print(str)
