@@ -1,11 +1,7 @@
-# Initialize a string
-str = "Learn"
-
 # Initialize a list
-list = ["Share", "IT"]
+my_list = ["2.4", "3.0", "5.0", "1.8"]
 
-# Use a for loop to iterate through the elements in the list
-for l in list:
-    str = str + " " + l # Update str
+# convert floating point using list comprehension
+res = [float(i) for i in my_list]
 
-print("After concatenate:",str)
+print("My new list:",res) 
