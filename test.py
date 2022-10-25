@@ -2,13 +2,7 @@
 float_number = 25.0
 
 # format float number with 3 zeros after the decimal point
-res1 = format(float_number, '.3f')
-print(res1)
+print('{0:.3f}'.format(float_number))
 
 # format float number with 5 zeros after the decimal point
-res2 = format(float_number, '.5f')
-print(res2)
-
-# format float number with 8 zeros after the decimal point
-res3 = format(float_number, '.8f')
-print(res3)
+print(f'{float_number:.5f}')
