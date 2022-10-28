@@ -1,8 +1,15 @@
-# Initialize a float number
-float_number = 25.0
+# remove \r\n from a string of strings
+str = "\r Learn Share IT \r\n"
 
-# format float number with 3 zeros after the decimal point
-print('{0:.3f}'.format(float_number))
+res = str.strip()
+print(res)  # Learn Share IT
 
-# format float number with 5 zeros after the decimal point
-print(f'{float_number:.5f}')
+# -------------------------------------
+
+# remove \r\n from a list of  strings
+# Initial a list contain strings
+a = ['\r line 1\r\n', '\n line 2\r\n', '\r\n line 3\r\n']
+
+res1 = [i.strip() for i in a ]
+print(res1) # ['line 1', 'line 2', 'line 3']
+
